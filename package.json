@@ -1,5 +1,5 @@
 {
-  "name": "homeafar-website",
+  "name": "client-static-site",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -13,10 +13,6 @@
   "dependencies": {
     "@fontsource/cormorant-garamond": "^5.3.0",
     "@fontsource/quicksand": "^5.0.8",
-    "@netlify/database": "^2.0.2",
-    "@netlify/functions": "^6.1.0",
-    "@netlify/identity": "^2.0.0",
-    "drizzle-orm": "^1.0.0-beta.22",
     "lucide-react": "^0.468.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -24,7 +20,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
-    "drizzle-kit": "^1.0.0-beta.22",
     "vite": "^5.4.0"
   }
 }

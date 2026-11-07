@@ -1,6 +1,7 @@
 [build]
   command = "npm run build"
   publish = "dist"
+  functions = "netlify/disabled-functions"
 
 # Built JS/CSS/fonts have content hashes in their names, so browsers can keep them for a year.
 [[headers]]
