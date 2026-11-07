@@ -10,11 +10,15 @@
 .menu.open{display:grid;grid-template-columns:minmax(0,1fr)}
 .menu a{min-width:0;padding:12px 0;min-height:50px;display:flex;align-items:center;gap:12px;font-size:1.1rem;text-decoration:none;color:var(--brown-deep);font-weight:600;border-bottom:1px solid var(--line);transition:color .2s;overflow-wrap:anywhere}
 .menu a:hover{color:var(--terra)}.menu a.active{color:var(--gold-deep)}.menu .s{display:none}
-@media(min-width:700px) and (max-width:1399px){.menu.open{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,6vw,64px)}}
+@media(min-width:700px) and (max-width:1399px){.menu.open{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(18px,4vw,44px)}}
+@media(min-width:1200px) and (max-width:1399px){
+  .header .menu{gap:0 clamp(6px,1vw,12px)}
+  .header .menu a{font-size:.82rem;padding:5px 0}
+}
 @media(min-width:1400px){
-  .burger{display:none}.header{gap:24px}
-  .header .menu{position:static;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-end;gap:0 clamp(10px,1vw,18px);padding:0;overflow:visible;max-height:none;background:none;flex:1;min-width:0}
-  .header .menu a{border:0;padding:6px 0;min-height:0;font-size:.84rem;white-space:nowrap;position:relative;gap:0}
+  .burger{display:none}.header{gap:18px}
+  .header .menu{position:static;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-end;gap:0 clamp(8px,.85vw,14px);padding:0;overflow:visible;max-height:none;background:none;flex:1;min-width:0}
+  .header .menu a{border:0;padding:5px 0;min-height:0;font-size:.8rem;white-space:nowrap;position:relative;gap:0}
   .header .menu .f{display:none}.header .menu .s{display:inline}
 }
 
@@ -23,15 +27,14 @@
 @media(min-width:1400px){
   .header .menu a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.22,.7,.2,1)}
   .header .menu a:hover::after,.header .menu a.active::after{transform:scaleX(1)}
-  .header .menu a.nav-home{padding:6px 2px}
+  .header .menu a.nav-home{padding:5px 2px}
 }
 @media(min-width:1400px) and (max-width:1519px){
-  .header{gap:18px}
-  .header .menu{gap:0 10px}
-  .header .menu a{font-size:.78rem}
+  .header{gap:16px}
+  .header .menu{gap:0 8px}
+  .header .menu a{font-size:.76rem}
 }
-/* The icon-hiding rule in the later lively.css applies to the old desktop breakpoint; keep icons in the tablet menu. */
-@media(min-width:1200px) and (max-width:1399px){.header .menu a .nav-ico{display:block}}
+@media(min-width:1200px){.header .menu .nav-ico{display:none}}
 @media(prefers-reduced-motion:reduce){.header .menu a::after,.brand img{transition:none}.brand:hover img{transform:none}}
 
 /* Header shadow and menu motion */
