@@ -1,42 +1,43 @@
 /* Header and navigation */
-.header{position:sticky;top:0;z-index:50;height:var(--hh);padding:env(safe-area-inset-top,0px) max(var(--pad),env(safe-area-inset-right,0px)) 0 max(var(--pad),env(safe-area-inset-left,0px));display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--cream);border-bottom:1px solid var(--line)}
+.header{position:sticky;top:0;z-index:50;height:var(--hh);min-width:0;padding:env(safe-area-inset-top,0px) max(var(--pad),env(safe-area-inset-right,0px)) 0 max(var(--pad),env(safe-area-inset-left,0px));display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--cream);border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--brown-deep);font-weight:700;font-size:1.25rem;flex:none}.brand img{border-radius:50%;height:auto;box-shadow:0 0 0 2px rgba(201,154,51,.45);transition:transform .5s cubic-bezier(.22,.7,.2,1)}.brand:hover img{transform:rotate(-12deg) scale(1.06)}
-.burger{background:none;border:0;width:48px;height:48px;margin-right:-8px;display:grid;place-content:center;gap:6px;cursor:pointer}
+.burger{background:none;border:0;width:48px;height:48px;margin-right:-8px;display:grid;place-content:center;gap:6px;cursor:pointer;flex:none}
 .burger span{width:26px;height:2px;background:var(--brown);display:block;transition:transform .2s,opacity .2s}
 .burger[aria-expanded=true] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
 .burger[aria-expanded=true] span:nth-child(2){opacity:0}
 .burger[aria-expanded=true] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-.menu{position:fixed;inset:var(--hh) 0 0 0;background:var(--cream);padding:12px max(var(--pad),env(safe-area-inset-right,0px)) calc(32px + env(safe-area-inset-bottom,0px)) max(var(--pad),env(safe-area-inset-left,0px));display:none;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;align-content:start}
-.menu.open{display:grid;grid-template-columns:1fr}
-.menu a{padding:12px 0;min-height:50px;display:flex;align-items:center;font-size:1.1rem;text-decoration:none;color:var(--brown-deep);font-weight:600;border-bottom:1px solid var(--line);transition:color .2s}
+.menu{position:fixed;inset:var(--hh) 0 0 0;max-height:calc(100vh - var(--hh));max-height:calc(100dvh - var(--hh));background:var(--cream);padding:12px max(var(--pad),env(safe-area-inset-right,0px)) calc(32px + env(safe-area-inset-bottom,0px)) max(var(--pad),env(safe-area-inset-left,0px));display:none;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;align-content:start}
+.menu.open{display:grid;grid-template-columns:minmax(0,1fr)}
+.menu a{min-width:0;padding:12px 0;min-height:50px;display:flex;align-items:center;gap:12px;font-size:1.1rem;text-decoration:none;color:var(--brown-deep);font-weight:600;border-bottom:1px solid var(--line);transition:color .2s;overflow-wrap:anywhere}
 .menu a:hover{color:var(--terra)}.menu a.active{color:var(--gold-deep)}.menu .s{display:none}
-@media(min-width:700px){.menu.open{grid-template-columns:1fr 1fr;column-gap:48px}}
-@media(min-width:1200px){
+@media(min-width:700px) and (max-width:1399px){.menu.open{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,6vw,64px)}}
+@media(min-width:1400px){
   .burger{display:none}.header{gap:24px}
-  .header .menu{position:static;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-end;gap:0 clamp(12px,1.4vw,22px);padding:0;overflow:visible;background:none;flex:1}
-  .header .menu a{border:0;padding:6px 0;min-height:0;font-size:.88rem;white-space:nowrap;position:relative}
+  .header .menu{position:static;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-end;gap:0 clamp(10px,1vw,18px);padding:0;overflow:visible;max-height:none;background:none;flex:1;min-width:0}
+  .header .menu a{border:0;padding:6px 0;min-height:0;font-size:.84rem;white-space:nowrap;position:relative;gap:0}
   .header .menu .f{display:none}.header .menu .s{display:inline}
 }
 
-/* Home link: house icon (with label in the phone menu); animated underline on desktop links */
+/* Home link: house icon (with label in the phone menu); animated underline on wide screens */
 .menu a.nav-home{gap:12px}.menu a.nav-home svg{color:var(--gold-deep);flex:none}
-@media(min-width:1200px){
+@media(min-width:1400px){
   .header .menu a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.22,.7,.2,1)}
   .header .menu a:hover::after,.header .menu a.active::after{transform:scaleX(1)}
   .header .menu a.nav-home{padding:6px 2px}
 }
-/* 1200-1319px: the full one-row menu only just fits beside the logo, so tighten link spacing and size a little to leave breathing room */
-@media(min-width:1200px) and (max-width:1319px){
-  .header{gap:20px}
-  .header .menu{gap:0 12px}
-  .header .menu a{font-size:.84rem}
+@media(min-width:1400px) and (max-width:1519px){
+  .header{gap:18px}
+  .header .menu{gap:0 10px}
+  .header .menu a{font-size:.78rem}
 }
+/* The icon-hiding rule in the later lively.css applies to the old desktop breakpoint; keep icons in the tablet menu. */
+@media(min-width:1200px) and (max-width:1399px){.header .menu a .nav-ico{display:block}}
 @media(prefers-reduced-motion:reduce){.header .menu a::after,.brand img{transition:none}.brand:hover img{transform:none}}
 
-/* Header lifts with a soft shadow once the page scrolls; the phone menu slides down and its links rise in turn */
+/* Header shadow and menu motion */
 .header{transition:box-shadow .3s,background-color .3s}
 .header.scrolled{box-shadow:0 6px 24px rgba(42,28,21,.1);background:rgba(250,244,232,.97)}
-@media(max-width:1199px){
+@media(max-width:1399px){
   @keyframes menu-in{from{opacity:0;transform:translateY(-10px)}}
   .menu.open{animation:menu-in .3s cubic-bezier(.22,.7,.2,1)}
   .menu.open a{animation:menu-in .4s cubic-bezier(.22,.7,.2,1) backwards}
