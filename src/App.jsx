@@ -13,11 +13,9 @@ const Opportunities = lazy(() => import('./pages/Opportunities.jsx'))
 const GetInvolved = lazy(() => import('./pages/GetInvolved.jsx'))
 const Contact = lazy(() => import('./pages/Contact.jsx'))
 const Privacy = lazy(() => import('./pages/Privacy.jsx'))
-const Admin = lazy(() => import('./pages/Admin.jsx'))
 const NotFound = lazy(() => import('./pages/NotFound.jsx'))
 // Page chunks are tiny; fetching them while the browser is idle makes the first click to any page instant.
 const PREFETCH = [() => import('./pages/About.jsx'), () => import('./pages/ContentPage.jsx'), () => import('./pages/Events.jsx'), () => import('./pages/Stories.jsx'), () => import('./pages/Beyond.jsx'), () => import('./pages/Kenya.jsx'), () => import('./pages/Opportunities.jsx'), () => import('./pages/GetInvolved.jsx'), () => import('./pages/Contact.jsx'), () => import('./pages/Privacy.jsx')]
-
 
 const CONTENT_SLUGS = ['safe-landing', 'tourism-to-africa', 'protection-and-justice', 'womens-health']
 
@@ -46,7 +44,6 @@ export default function App() {
         <Route path="/get-involved" element={<GetInvolved />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy" element={<Privacy />} />
-        <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       </div>

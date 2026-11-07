@@ -1,6 +1,7 @@
 [build]
   command = "npm run build"
   publish = "dist"
+  functions = "netlify/disabled-functions"
 
 # Built JS/CSS/fonts have content hashes in their names, so browsers can keep them for a year.
 [[headers]]
@@ -19,14 +20,3 @@
   [headers.values]
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-
-# /admin is drawn in the browser (not pre-rendered): serve the app shell for it.
-[[redirects]]
-  from = "/admin"
-  to = "/index.html"
-  status = 200
-
-[[headers]]
-  for = "/admin"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow"

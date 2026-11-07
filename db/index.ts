@@ -1,4 +1,1 @@
-import { drizzle } from 'drizzle-orm/netlify-db'
-import * as schema from './schema.js'
-
-export const db = drizzle({ schema })
+// Database integration intentionally removed. Client event and opportunity content is kept in src/data/listings.js.
