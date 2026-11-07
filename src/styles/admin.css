@@ -1,0 +1,45 @@
+.adm,.adm-auth{min-height:70vh;padding:24px var(--pad)}
+.adm-auth{display:grid;place-items:center}
+.adm-auth-card{width:100%;max-width:420px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.adm-auth-brand{display:inline-block;margin-bottom:12px;text-decoration:none}
+.adm-auth-card h1{font-size:1.8rem}
+.adm-top{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;max-width:var(--w);margin:0 auto 16px}
+.adm-brand{display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--brown-deep);font-weight:700}
+.adm-user{display:flex;gap:10px;align-items:center;font-size:.9rem;min-width:0}.adm-user span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:220px}
+.adm-tabs{display:flex;gap:6px;flex-wrap:wrap;max-width:var(--w);margin:0 auto;border-bottom:1px solid var(--line)}
+.adm-tabs button{display:flex;gap:6px;align-items:center;background:none;border:0;border-bottom:3px solid transparent;padding:10px 14px;font:inherit;font-weight:600;color:var(--brown);cursor:pointer}
+.adm-tabs button[aria-current]{border-color:var(--gold);color:var(--brown-deep)}
+.adm-count{background:var(--terra);color:#fff;border-radius:99px;font-size:.75rem;padding:0 7px}
+.adm-main{max-width:var(--w);margin:0 auto;padding-top:20px}
+.adm-form{display:grid;gap:14px}.adm-form label{display:grid;gap:4px;font-weight:600}
+.adm-form input:not([type=checkbox]),.adm-form textarea,.adm-form select,.adm-inline select{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;width:100%}
+.adm-form small,.adm-small{font-weight:400;color:var(--brown);font-size:.9rem}
+.adm-check{display:flex!important;gap:8px;align-items:center;font-weight:600}
+.adm-inline{display:flex;gap:8px;align-items:center}
+.adm-btn{display:inline-flex;gap:6px;align-items:center;justify-content:center;font:inherit;font-weight:700;padding:10px 16px;border-radius:8px;border:1px solid var(--brown);background:none;color:var(--brown-deep);cursor:pointer;text-decoration:none}
+.adm-btn.primary{background:var(--brown-deep);color:#fff;border-color:var(--brown-deep)}
+.adm-btn.danger{color:var(--terra-deep);border-color:var(--terra)}
+.adm-btn.sm{padding:6px 10px;font-size:.88rem}.adm-btn:disabled{opacity:.55;cursor:default}
+.adm-link{background:none;border:0;color:var(--gold-deep);font:inherit;text-decoration:underline;cursor:pointer;padding:8px 0}
+.adm-back{display:inline-flex;gap:6px;align-items:center;margin-top:14px;font-size:.9rem}
+.adm-alert{display:flex;gap:8px;align-items:flex-start;padding:10px 12px;border-radius:8px;margin:8px 0}
+.adm-alert.error{background:#f8e3dc;color:var(--terra-deep)}.adm-alert.ok{background:#e4ede6;color:var(--forest)}
+.adm-toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:14px}
+.adm-list{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.adm-msg,.adm-row,.adm-editor,.adm-empty{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.adm-msg.unread{border-left:4px solid var(--gold)}
+.adm-msg h3,.adm-row h4{margin:6px 0 2px}
+.adm-msg-head,.adm-badges{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.85rem}
+.adm-msg-head time{margin-left:auto;color:var(--brown)}
+.adm-badge{background:var(--cream-deep);border-radius:99px;padding:1px 10px;font-size:.8rem;font-weight:700}
+.adm-badge.gold{background:var(--gold-light)}.adm-badge.ok{background:#d9e8dc}.adm-badge.warn{background:#f3d5c8}
+.adm-meta{color:var(--brown);font-size:.92rem;margin:4px 0}.adm-body{white-space:pre-wrap}
+.adm-mail{word-break:break-all}
+.adm-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.adm-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.adm-row-main{min-width:0;flex:1 1 260px}
+.adm-group h3{margin-top:22px}
+.adm-empty{display:flex;gap:12px;align-items:center;color:var(--brown)}
+.adm-loading{display:flex;gap:10px;align-items:center}
+.adm-noaccess{display:flex;gap:12px;align-items:flex-start}
+.adm-ext{display:inline-flex;gap:3px;align-items:center}

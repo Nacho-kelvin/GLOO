@@ -1,0 +1,15 @@
+/* Design tokens and base element styles */
+:root{--cream:#FAF4E8;--cream-deep:#F0E4CE;--brown:#6B4630;--brown-deep:#2A1C15;--gold:#C99A33;--gold-light:#EBCB7C;--gold-deep:#7A5512;--ink:#3C271B;--forest:#34423A;--forest-deep:#232D27;--terra:#B66548;--terra-deep:#8E4A33;--line:rgba(89,59,43,.14);--w:1180px;--pad:clamp(20px,4vw,32px);--hh:calc(64px + env(safe-area-inset-top,0px));--font:"Quicksand",system-ui,-apple-system,"Segoe UI",sans-serif;--sec:clamp(52px,7.5vw,100px);--radius:14px}
+@media(min-width:1200px){:root{--hh:calc(76px + env(safe-area-inset-top,0px))}}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:calc(var(--hh) + 12px);overflow-x:hidden}
+/* `clip` (not `hidden`) keeps body from becoming a scroll container, which would break the sticky header */
+body{margin:0;overflow-x:hidden;overflow-x:clip;font-family:var(--font);background:var(--cream);color:var(--ink);line-height:1.7;font-size:1.05rem;overflow-wrap:break-word;-webkit-tap-highlight-color:rgba(229,169,31,.25)}
+h1,h2,h3{color:var(--brown-deep);line-height:1.18;margin:0 0 .6em;letter-spacing:-.01em;text-wrap:balance}
+h1,h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;letter-spacing:-.005em}
+h1{font-size:clamp(2.5rem,7vw,4.6rem);line-height:1.02}h2{font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1.1}h3{font-size:1.2rem}
+p{margin:.8em 0}ul,ol{padding-left:1.3em}
+a{color:var(--gold-deep)}img{max-width:100%;height:auto}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+button,.btn,a.tile,summary{touch-action:manipulation}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;padding:8px;z-index:100}

@@ -1,0 +1,101 @@
+/* Editorial layouts: overlapping photos, full-width photo bands, collage, mosaic, values. */
+.eyebrow{letter-spacing:.12em}
+
+
+/* Overlapping photographs */
+.overlap{position:relative;padding:0 0 18% 0;margin:14px 0 0 14px}.overlap figure{margin:0;position:relative}
+.overlap img{display:block;width:100%;object-fit:cover;border-radius:var(--radius)}
+.ov-main img{aspect-ratio:1/1;box-shadow:0 22px 48px rgba(42,28,21,.25)}
+.ov-main::before{content:'';position:absolute;inset:-14px 14px 14px -14px;border:2px solid var(--gold);border-radius:var(--radius);z-index:-1}
+.overlap .ov-accent{position:absolute;right:-4%;bottom:0;width:48%}.ov-accent img{aspect-ratio:1/1;border:6px solid var(--cream);box-shadow:0 18px 36px rgba(42,28,21,.3)}
+.alt .ov-accent img{border-color:var(--cream-deep)}
+.overlap.flip .ov-accent{right:auto;left:-4%}.overlap.flip .ov-main::before{inset:-14px -14px 14px 14px}
+.overlap.flip{margin:14px 14px 0 0}
+@media(min-width:800px){.split>.overlap{max-width:520px}}
+@media(max-width:799px){.overlap{padding-bottom:22%}.overlap .ov-accent{right:0;width:44%}.overlap.flip .ov-accent{left:0}}
+
+/* Full-width photo band */
+.photoband{position:relative;isolation:isolate;display:flex;align-items:center;min-height:clamp(320px,52vw,520px);padding:clamp(48px,8vw,96px) 0;color:#fff;overflow:hidden;background:var(--brown-deep)}
+.photoband>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.photoband::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(42,28,21,.9),rgba(42,28,21,.68) 55%,rgba(42,28,21,.4))}
+.photoband.center{text-align:center}.photoband.center::before{background:rgba(42,28,21,.58)}
+.photoband.center .pb-text>*{margin-inline:auto}
+.photoband h2,.pb-quote{color:#fff;max-width:18em}
+.pb-quote{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:clamp(2rem,5.6vw,3.8rem);line-height:1.08;margin:0}
+.photoband p{max-width:36em}.photoband .btn:not(.ghost){--fill:#fff;--fill-text:var(--brown-deep)}
+.photoband .eyebrow{color:var(--gold-light)}
+.mv{display:grid;gap:28px}.mv p{font-size:clamp(1.05rem,2vw,1.3rem);line-height:1.6;margin:0}
+@media(min-width:800px){.mv{grid-template-columns:1fr 1fr;gap:56px}}
+
+/* Collage */
+.collage{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:clamp(130px,24vw,220px);gap:12px}
+.cl{margin:0;overflow:hidden;border-radius:var(--radius)}.cl img{width:100%;height:100%;object-fit:cover;display:block;max-width:none;transition:transform .6s}
+.cl:hover img{transform:scale(1.04)}
+.cl1{grid-column:1/3;grid-row:span 2}
+@media(min-width:800px){.collage{grid-template-columns:1.2fr 1fr 1fr;grid-auto-rows:190px}.cl1{grid-column:1;grid-row:span 3}.cl2{grid-column:2/4}.cl3{grid-column:2}.cl4{grid-column:3}.cl3,.cl4{grid-row:span 2}}
+.dark .collage .cl{box-shadow:0 14px 30px rgba(0,0,0,.35)}
+
+/* Mosaic of focus areas */
+.mosaic{display:grid;gap:16px;margin-top:32px}.duo{display:grid;gap:16px;margin-top:32px}
+.mt{position:relative;display:block;overflow:hidden;border-radius:var(--radius);color:#fff;text-decoration:none;min-height:260px;isolation:isolate}
+.mt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .7s cubic-bezier(.22,.7,.2,1)}
+.mt::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(42,28,21,.05) 10%,rgba(42,28,21,.92) 85%)}
+.mt:hover img{transform:scale(1.05)}
+.mt-text{position:absolute;left:0;right:0;bottom:0;padding:22px 24px}.mt h3{color:#fff;font-size:1.35rem;margin-bottom:.25em}.mt p{margin:0 0 .6em;font-size:.97rem;max-width:30em}
+.mt .more{font-weight:700;color:var(--gold-light);border-bottom:2px solid var(--gold)}
+.mt-lead{min-height:340px}.mt-wide{min-height:300px}
+@media(min-width:800px){.mosaic{grid-template-columns:1.4fr 1fr;grid-template-rows:repeat(3,minmax(230px,auto))}.mt-lead{grid-row:span 3;min-height:0}.mosaic .mt{min-height:0}.mt-lead h3{font-size:1.8rem}.duo{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){.mt img,.cl img{transition:none}.mt:hover img,.cl:hover img{transform:none}}
+
+/* Values: open list divided by gold rules */
+.values{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:0}
+.values li{padding:20px 0;border-top:2px solid var(--gold)}.values h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.6rem;margin-bottom:.2em}.values p{margin:0}
+@media(min-width:560px){.values{grid-template-columns:repeat(2,1fr);gap:0 32px}}
+@media(min-width:1000px){.values{grid-template-columns:repeat(4,1fr)}}
+
+.statband{background:var(--brown-deep);color:var(--cream);border-bottom:0}.stats b{color:var(--gold-light);font-family:"Cormorant Garamond",Georgia,serif;font-weight:700}
+.stats li,.stats li:nth-child(odd){border-color:rgba(255,255,255,.14)}
+.green{--band:var(--forest)}
+
+/* Full-bleed homepage */
+.hero.hero-full{min-height:100vh;min-height:100svh;align-items:center}
+.hero-eyebrow{color:var(--gold-light)}
+.hero-cue{position:absolute;left:50%;bottom:20px;z-index:2;transform:translateX(-50%);color:#fff;opacity:.85;animation:cue 2s ease-in-out infinite}
+@keyframes cue{50%{transform:translate(-50%,6px)}}
+.bleed{width:100vw;margin-left:calc(50% - 50vw)}
+.mosaic.bleed,.duo.bleed{gap:4px}
+/* a section that ends on an edge-to-edge photo row closes on the photos, without an empty strip beneath */
+.sec:has(>.bleed:last-child,>.filmstrip:last-child){padding-bottom:0}.bleed .mt{border-radius:0}
+.filmstrip{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:36px}
+.fs{margin:0;aspect-ratio:3/4;overflow:hidden}.fs img{width:100%;height:100%;object-fit:cover;display:block}
+@media(min-width:800px){.filmstrip{grid-template-columns:repeat(4,1fr)}}
+.mt-ico{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,.15);color:var(--gold-light);margin-bottom:10px}
+.stat-ico{color:var(--gold);margin:0 auto 8px}
+.journey .when{display:flex;align-items:center;gap:6px}
+.notice{display:flex;gap:12px;align-items:flex-start}.notice svg{flex:none;margin-top:3px;color:var(--terra-deep)}
+.faq summary svg{flex:none;margin-right:10px;color:var(--gold-deep)}
+.eyebrow svg{vertical-align:-3px;margin-right:6px}
+.leader{display:flex;gap:16px}.leader .ico{margin:0}
+.icon-list.two{margin-top:28px}@media(min-width:800px){.icon-list.two{grid-template-columns:1fr 1fr;gap:24px 40px}}
+@media(prefers-reduced-motion:reduce){.hero-cue{animation:none}}
+
+/* Guest quotes */
+.voice{display:flex;flex-direction:column;margin:0;position:relative}
+.voice-mark{color:var(--gold);opacity:.55;margin-bottom:6px}
+.voice blockquote{margin:0 0 18px;font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:1.32rem;line-height:1.35;color:var(--brown-deep);flex:1}
+.voice figcaption{display:flex;align-items:center;gap:10px;padding-top:14px;border-top:1px solid var(--line)}
+.voice figcaption span{display:flex;flex-direction:column;line-height:1.25;font-size:.88rem;color:var(--gold-deep)}.voice figcaption b{color:var(--brown-deep);font-size:1rem}
+@media(hover:hover){.voice{transition:transform .35s cubic-bezier(.22,.7,.2,1),box-shadow .35s}.voice:hover{transform:translateY(-4px) rotate(-.4deg)}}
+
+/* Kenya profile: key facts and Kiswahili words */
+.facts{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:0;background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 24px rgba(42,28,21,.06)}
+.facts div{padding:16px 20px;border-bottom:1px solid var(--line)}.facts div:nth-child(odd){border-right:1px solid var(--line)}.facts div:nth-last-child(-n+2){border-bottom:0}
+.facts dt{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--terra-deep)}.facts dd{margin:4px 0 0;font-weight:700;color:var(--brown-deep);line-height:1.35}
+.words{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:10px}
+.words li{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.words b{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.5rem;color:var(--gold-light)}.words span{text-align:right;opacity:.85}
+.hero-status .flag{width:20px;height:15px;margin-right:8px}
+.country-live{border-top-color:var(--gold)!important;box-shadow:0 0 0 2px rgba(201,154,51,.35),0 14px 30px rgba(42,28,21,.1)}
+.portal .badge{margin:0 0 12px}
+.team-fig figcaption{color:inherit;opacity:.8}
+@media(prefers-reduced-motion:reduce){.voice{transition:none}.voice:hover{transform:none}}

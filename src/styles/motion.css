@@ -1,0 +1,31 @@
+/* Back-to-top button, reveal animation, reduced motion, print and very small screens */
+.totop{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;width:48px;height:48px;border-radius:50%;border:0;background:var(--brown-deep);color:var(--gold);font:700 1.4rem var(--font);cursor:pointer;box-shadow:0 8px 22px rgba(36,21,16,.35);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .25s,transform .25s,visibility .25s}
+.totop.show{opacity:1;visibility:visible;transform:none}.totop:hover{background:var(--gold-deep);color:#fff}
+.js .sec{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.js .sec.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .sec{opacity:1;transform:none;transition:none}a.tile:hover,a.tile.media:hover img{transform:none}.tile.media img{transition:none}}
+@media print{.js .sec{opacity:1;transform:none}.header,.totop,.menu{display:none!important}}
+@media(max-width:360px){h1{font-size:1.85rem}.tile{padding:20px}}
+
+/* Page-to-page fade (opacity only, so sticky and fixed elements keep working) */
+@keyframes page-in{from{opacity:0}to{opacity:1}}
+.page{animation:page-in .45s ease both}
+/* Staggered entrance for groups of cards: each child rises a little after the one before, once, when the section appears.
+   Done with animation (fill: backwards) so hover effects on the same elements are not delayed or overridden afterwards. */
+@keyframes rise{from{opacity:0;transform:translateY(16px)}}
+@keyframes settle{from{opacity:0;transform:scale(.985)}}
+.js .sec:not(.in) :where(.grid2,.grid3,.grid4,.grid-forms,.stack,.icon-list,.flag-row)>*{opacity:0}
+.js .sec:not(.in) :where(.rounded,.car-view){opacity:0}
+.js .sec.in :where(.grid2,.grid3,.grid4,.grid-forms,.stack,.icon-list,.flag-row)>*{animation:rise .65s cubic-bezier(.22,.7,.2,1) backwards}
+.js .sec.in :where(.grid2,.grid3,.grid4,.grid-forms,.stack,.icon-list,.flag-row)>:nth-child(2){animation-delay:.08s}
+.js .sec.in :where(.grid2,.grid3,.grid4,.grid-forms,.stack,.icon-list,.flag-row)>:nth-child(3){animation-delay:.16s}
+.js .sec.in :where(.grid2,.grid3,.grid4,.grid-forms,.stack,.icon-list,.flag-row)>:nth-child(4){animation-delay:.24s}
+.js .sec.in :where(.grid2,.grid3,.grid4,.grid-forms,.stack,.icon-list,.flag-row)>:nth-child(n+5){animation-delay:.32s}
+.js .sec.in :where(.rounded,.car-view){animation:settle .8s cubic-bezier(.22,.7,.2,1) backwards}
+@media(prefers-reduced-motion:reduce){.page{animation:none}.js .sec:not(.in) :where(.grid2,.grid3,.grid4,.grid-forms,.stack,.icon-list,.flag-row)>*,.js .sec:not(.in) :where(.rounded,.car-view){opacity:1}.js .sec.in :where(.grid2,.grid3,.grid4,.grid-forms,.stack,.icon-list,.flag-row)>*,.js .sec.in :where(.rounded,.car-view){animation:none}}
+@media print{.js .sec:not(.in) *{opacity:1!important}}
+
+/* Gentle zoom on photos and icons when hovered */
+.overlap img,.fs img{transition:transform .6s cubic-bezier(.22,.7,.2,1)}
+@media(hover:hover){.overlap:hover .ov-main img{transform:scale(1.015)}.fs:hover img{transform:scale(1.05)}}
+.mt-ico{transition:transform .4s cubic-bezier(.22,.7,.2,1),background .4s}.mt:hover .mt-ico{transform:translateY(-3px) rotate(-6deg);background:rgba(229,169,31,.3)}
+@media(prefers-reduced-motion:reduce){.overlap img,.fs img,.mt-ico{transition:none}.mt:hover .mt-ico,.fs:hover img,.overlap:hover .ov-main img{transform:none}}

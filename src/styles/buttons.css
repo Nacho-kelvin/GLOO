@@ -1,0 +1,27 @@
+/* Buttons: one rectangular style with a right-pointing arrow. See components/Btn.jsx. */
+.btn{--fill:var(--brown-deep);--fill-text:var(--gold-light);-webkit-appearance:none;appearance:none;position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  background-color:var(--gold);background-image:linear-gradient(var(--fill),var(--fill));background-repeat:no-repeat;background-position:left center;background-size:0% 100%;
+  color:var(--brown-deep);border:2px solid var(--gold);border-radius:6px;padding:12px 24px;font:700 .95rem var(--font);letter-spacing:.03em;text-decoration:none;cursor:pointer;min-height:48px;text-align:center;
+  transition:background-size .35s cubic-bezier(.22,.7,.2,1),color .25s,border-color .25s,transform .15s,box-shadow .25s}
+.btn-label{display:inline-flex;align-items:center;gap:10px}
+.btn-arrow{flex:none;transition:transform .3s cubic-bezier(.22,.7,.2,1)}
+.btn:hover,.btn:focus-visible{background-size:100% 100%;color:var(--fill-text);border-color:var(--fill)}
+.btn:hover .btn-arrow,.btn:focus-visible .btn-arrow{transform:translateX(5px)}
+.btn:active{transform:translateY(1px);box-shadow:none}.btn:active .btn-arrow{transform:translateX(2px)}
+.btn:focus-visible{outline:3px solid var(--brown-deep);outline-offset:3px}
+.btn:disabled,.btn[aria-busy=true]{opacity:.65;cursor:default}.btn:disabled:hover{background-size:0% 100%;color:var(--brown-deep);border-color:var(--gold)}.btn:disabled:hover .btn-arrow{transform:none}
+
+.btn.ghost{background-color:transparent;color:var(--brown);border-color:var(--brown);--fill:var(--brown);--fill-text:#fff}
+.btn.ghost:hover,.btn.ghost:focus-visible{border-color:var(--brown)}
+.btn.ghost.light,.dark .btn.ghost,.green .btn.ghost{color:#fff;border-color:rgba(255,255,255,.85);--fill:#fff;--fill-text:var(--brown-deep)}
+.btn.ghost.light:hover,.dark .btn.ghost:hover,.green .btn.ghost:hover,.btn.ghost.light:focus-visible,.dark .btn.ghost:focus-visible,.green .btn.ghost:focus-visible{border-color:#fff}
+/* primary buttons on dark bands and photos fill with white, since a dark fill would vanish */
+.dark .btn:not(.ghost),.green .btn:not(.ghost),.hero .btn:not(.ghost){--fill:#fff;--fill-text:var(--brown-deep)}
+.dark .btn:not(.ghost):hover,.green .btn:not(.ghost):hover,.hero .btn:not(.ghost):hover{border-color:#fff}
+.dark .btn:focus-visible,.green .btn:focus-visible,.hero .btn:focus-visible{outline-color:#fff}
+.green .tile .btn:not(.ghost){--fill:var(--brown-deep);--fill-text:var(--gold-light)}.green .tile .btn:not(.ghost):hover{border-color:var(--brown-deep)}.green .tile .btn:focus-visible{outline-color:var(--brown-deep)}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}.btn-row.center{justify-content:center}.tile .btn-row{margin-top:14px}
+.spinner{width:16px;height:16px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:559px){.btn-row .btn,.form .btn,.cta .btn,.hero .btn{flex:1 1 100%;width:100%}}
+@media(prefers-reduced-motion:reduce){.btn,.btn-arrow{transition:none}.btn:hover .btn-arrow,.btn:focus-visible .btn-arrow{transform:none}.spinner{animation-duration:2.4s}}

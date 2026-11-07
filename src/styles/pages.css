@@ -1,0 +1,19 @@
+/* Page-specific layout: Get Involved intro, Contact, 404 */
+.intro-split{margin-bottom:clamp(36px,5vw,56px)}
+.contact-fig{margin-bottom:22px}
+.contact-fig img{aspect-ratio:auto}
+.contact-list{display:grid;gap:14px;margin-bottom:26px}
+.ccard{padding:16px 22px;border-top-width:1px;border-left:5px solid var(--gold)}.ccard:nth-child(2){border-left-color:var(--forest)}.ccard:nth-child(3){border-left-color:var(--terra)}
+.ccard .eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:2px}.ccard strong{font-size:1.1rem;color:var(--brown-deep)}
+.notfound{text-align:center}.notfound .chips{justify-content:center}.notfound p{margin-inline:auto}
+.route-loading{min-height:60vh}
+.page{min-height:60vh}
+@media(max-width:559px){.ccard strong{word-break:break-word}}
+
+/* Content pages: tick lists, external-link tiles */
+.ticks{list-style:none;margin:.4em 0 0;padding:0}
+.ticks li{position:relative;margin:.55em 0;padding-left:1.7em}
+.ticks li::before{position:absolute;left:0;top:0;font-weight:700}
+.ticks.yes li::before{content:'\2713';content:'\2713' / '';color:var(--forest)}
+.ticks.no li::before{content:'\2715';content:'\2715' / '';color:var(--terra-deep)}
+.tile .ext{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-weight:700;color:var(--gold-deep)}

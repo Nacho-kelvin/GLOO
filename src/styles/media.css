@@ -1,0 +1,19 @@
+/* Photographs */
+.rounded{border-radius:var(--radius);width:100%;display:block;object-fit:cover;box-shadow:0 20px 44px rgba(36,21,16,.22)}
+.split .rounded{aspect-ratio:4/3}
+.split .rounded.sq{aspect-ratio:1/1;max-width:440px;justify-self:center}
+.split .rounded.poster,.rounded.poster{aspect-ratio:auto;max-width:480px;justify-self:center}
+.fig{margin:0}.fig img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius);display:block;box-shadow:0 14px 30px rgba(36,21,16,.18)}
+.fig.r169 img{aspect-ratio:16/9}.fig.r45 img{aspect-ratio:4/5}
+.fig figcaption{font-size:.85rem;opacity:.75;margin-top:8px}.fig.card figcaption{font-size:1rem;font-weight:700;opacity:1;color:var(--brown-deep);margin-top:12px}
+.fig.event-fig{max-width:480px;justify-self:center;width:100%}
+.fig.banner-fig img{box-shadow:0 20px 44px rgba(36,21,16,.22)}
+.gallery{list-style:none;margin:28px 0 0;padding:0;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:none;max-width:100%}
+.gallery::-webkit-scrollbar{display:none}.gallery li{flex:0 0 78%;scroll-snap-align:start}.gallery img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px;display:block}
+@media(min-width:700px){.gallery{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;gap:16px}.gallery li{flex:none}.gallery img{aspect-ratio:4/3}}
+@media(min-width:1000px){.gallery img{aspect-ratio:1/1}}
+
+/* Subtle photo hover: a small lift and deeper shadow (no zoom, so edges and rounded corners stay clean) */
+.rounded,.fig img{transition:transform .5s cubic-bezier(.22,.7,.2,1),box-shadow .5s}
+.rounded:hover,.fig:hover img{transform:translateY(-4px);box-shadow:0 26px 52px rgba(36,21,16,.26)}
+@media(prefers-reduced-motion:reduce){.rounded,.fig img{transition:none}.rounded:hover,.fig:hover img{transform:none}.tile-img{transition:none}.formtile:hover .tile-img{transform:none}}

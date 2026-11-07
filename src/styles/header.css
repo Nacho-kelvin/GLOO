@@ -1,0 +1,48 @@
+/* Header and navigation */
+.header{position:sticky;top:0;z-index:50;height:var(--hh);padding:env(safe-area-inset-top,0px) max(var(--pad),env(safe-area-inset-right,0px)) 0 max(var(--pad),env(safe-area-inset-left,0px));display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--cream);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--brown-deep);font-weight:700;font-size:1.25rem;flex:none}.brand img{border-radius:50%;height:auto;box-shadow:0 0 0 2px rgba(201,154,51,.45);transition:transform .5s cubic-bezier(.22,.7,.2,1)}.brand:hover img{transform:rotate(-12deg) scale(1.06)}
+.burger{background:none;border:0;width:48px;height:48px;margin-right:-8px;display:grid;place-content:center;gap:6px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--brown);display:block;transition:transform .2s,opacity .2s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.menu{position:fixed;inset:var(--hh) 0 0 0;background:var(--cream);padding:12px max(var(--pad),env(safe-area-inset-right,0px)) calc(32px + env(safe-area-inset-bottom,0px)) max(var(--pad),env(safe-area-inset-left,0px));display:none;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;align-content:start}
+.menu.open{display:grid;grid-template-columns:1fr}
+.menu a{padding:12px 0;min-height:50px;display:flex;align-items:center;font-size:1.1rem;text-decoration:none;color:var(--brown-deep);font-weight:600;border-bottom:1px solid var(--line);transition:color .2s}
+.menu a:hover{color:var(--terra)}.menu a.active{color:var(--gold-deep)}.menu .s{display:none}
+@media(min-width:700px){.menu.open{grid-template-columns:1fr 1fr;column-gap:48px}}
+@media(min-width:1200px){
+  .burger{display:none}.header{gap:24px}
+  .header .menu{position:static;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-end;gap:0 clamp(12px,1.4vw,22px);padding:0;overflow:visible;background:none;flex:1}
+  .header .menu a{border:0;padding:6px 0;min-height:0;font-size:.88rem;white-space:nowrap;position:relative}
+  .header .menu .f{display:none}.header .menu .s{display:inline}
+}
+
+/* Home link: house icon (with label in the phone menu); animated underline on desktop links */
+.menu a.nav-home{gap:12px}.menu a.nav-home svg{color:var(--gold-deep);flex:none}
+@media(min-width:1200px){
+  .header .menu a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.22,.7,.2,1)}
+  .header .menu a:hover::after,.header .menu a.active::after{transform:scaleX(1)}
+  .header .menu a.nav-home{padding:6px 2px}
+}
+/* 1200-1319px: the full one-row menu only just fits beside the logo, so tighten link spacing and size a little to leave breathing room */
+@media(min-width:1200px) and (max-width:1319px){
+  .header{gap:20px}
+  .header .menu{gap:0 12px}
+  .header .menu a{font-size:.84rem}
+}
+@media(prefers-reduced-motion:reduce){.header .menu a::after,.brand img{transition:none}.brand:hover img{transform:none}}
+
+/* Header lifts with a soft shadow once the page scrolls; the phone menu slides down and its links rise in turn */
+.header{transition:box-shadow .3s,background-color .3s}
+.header.scrolled{box-shadow:0 6px 24px rgba(42,28,21,.1);background:rgba(250,244,232,.97)}
+@media(max-width:1199px){
+  @keyframes menu-in{from{opacity:0;transform:translateY(-10px)}}
+  .menu.open{animation:menu-in .3s cubic-bezier(.22,.7,.2,1)}
+  .menu.open a{animation:menu-in .4s cubic-bezier(.22,.7,.2,1) backwards}
+  .menu.open a:nth-child(2){animation-delay:.03s}.menu.open a:nth-child(3){animation-delay:.06s}.menu.open a:nth-child(4){animation-delay:.09s}
+  .menu.open a:nth-child(5){animation-delay:.12s}.menu.open a:nth-child(6){animation-delay:.15s}.menu.open a:nth-child(7){animation-delay:.18s}
+  .menu.open a:nth-child(n+8){animation-delay:.21s}
+  .menu a:active{color:var(--terra)}
+}
+@media(prefers-reduced-motion:reduce){.header{transition:none}.menu.open,.menu.open a{animation:none}}
